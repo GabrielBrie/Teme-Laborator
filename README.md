@@ -69,7 +69,7 @@ Fiecare aplicație evidențiază un **concept-cheie diferit**, de la UI logic, l
 
 **Gabriel Brie**  
 📅 *2025*  
-🎓 Student – Tehnologii Web și Aplicații Distribuite
+🎓 Student – Electronica Aplicata 
 
 ---
 
