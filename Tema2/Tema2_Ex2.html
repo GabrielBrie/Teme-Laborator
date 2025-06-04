@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<link rel="icon" type="favicon.ico" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversie Alfabetică Unică</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+            flex-direction: column;
+            color: #333;
+			}
+        .container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+			}
+        input {
+            margin: 10px;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            width: 90%;
+            background: #ffffff;
+            color: #333;
+			transition: all 0.2s;
+			}
+		input.shake {
+			animation: shake 0.3s;
+			border-color: red;
+			}
+		@keyframes shake {
+			0% { transform: translateX(0); }
+			25% { transform: translateX(-5px); }
+			50% { transform: translateX(5px); }
+			75% { transform: translateX(-5px); }
+			100% { transform: translateX(0); }
+			}
+        button {
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+			width: 90%;
+			}
+        button:hover {
+            background: #0056b3;
+			}
+        .output {
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 20px;
+            word-break: break-word;
+            color: #007bff;
+			}
+		#copyBtn {
+			padding: 6px 12px;
+			font-size: 14px;
+			border: none;
+			border-radius: 6px;
+			background: #007bff;
+			color: white;
+			cursor: pointer;
+			transition: background 0.3s;
+			display: none;
+			margin-top: 10px;
+			}
+		#copyBtn.copied {
+			background: #28a745;
+			}
+		#resetBtn {
+			padding: 10px 16px;
+			font-size: 14px;
+			border: none;
+			border-radius: 6px;
+			background: #dc3545;
+			color: white;
+			cursor: pointer;
+			transition: background 0.3s;
+			margin-top: 10px;
+			width: 90%;
+			}
+		#resetBtn:hover {
+			background: #a71d2a;
+			}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Transformare Unică de Text</h2>
+        <input type="text" id="inputText" placeholder="Introdu textul aici...">
+		<span id="errorMsg" style="color: red; font-size: 14px; display: none;">⚠️ Introdu un text!</span>
+        <button onclick="convertText()">Converteste</button>
+        <p class="output" id="outputText"></p>
+		<button id="copyBtn" onclick="copyToClipboard()">📋 Copiază</button>
+		<button id="resetBtn" onclick="resetAll()" style="display: none;">♻️ Resetează</button>
+
+    </div>
+    
+    <script>
+		
+        function convertText() {
+            const inputEl = document.getElementById('inputText');
+			const errorMsg = document.getElementById('errorMsg');
+			const input = inputEl.value;
+    
+			if (!input.trim()) {
+				inputEl.classList.add('shake');
+				errorMsg.style.display = 'block';
+				setTimeout(() => inputEl.classList.remove('shake'), 500);
+				return;
+			} else {
+                errorMsg.style.display = 'none';
+            }
+
+            const alpha = 'abcdefghijklmnopqrstuvwxyz';
+            const reversedAlpha = [...alpha].reverse().join('');
+            
+            let output = '';
+            for (let ch of input) {
+                let isUpper = ch >= 'A' && ch <= 'Z';
+                let idx = alpha.indexOf(ch.toLowerCase());
+                
+                if (idx !== -1) {
+                    let newChar = reversedAlpha[idx];
+                    output += isUpper ? newChar.toUpperCase() : newChar;
+                } else {
+                    output += ch;
+                }
+            }
+            
+			const outputEl = document.getElementById('outputText');
+			outputEl.textContent = ''; 
+			
+			let i = 0;
+			function typeEffect() {
+				if (i < output.length) {
+					outputEl.textContent += output.charAt(i);
+					i++;
+					setTimeout(typeEffect, 30);
+				}  
+			}
+			typeEffect();
+			
+			document.getElementById("copyBtn").style.display = "inline-block";
+			document.getElementById("resetBtn").style.display = "inline-block";
+        }
+		
+		function copyToClipboard() {
+			const text = document.getElementById("outputText").textContent;
+			const copyBtn = document.getElementById("copyBtn");
+
+			navigator.clipboard.writeText(text);
+			
+			copyBtn.classList.add("copied");
+			copyBtn.textContent = "✅ Copiat!";
+			
+			setTimeout(() => {
+				copyBtn.classList.remove("copied");
+				copyBtn.textContent = "📋 Copiază";
+			}, 2000);
+		}
+		
+		function resetAll() {
+            document.getElementById("inputText").value = "";
+            document.getElementById("outputText").textContent = "";
+            document.getElementById("copyBtn").style.display = "none";
+            document.getElementById("resetBtn").style.display = "none";
+            document.getElementById("errorMsg").style.display = "none";
+        }
+    </script>
+</body>
+</html>

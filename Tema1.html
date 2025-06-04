@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descoperă Numere Armstrong</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f4f4f4;
+        }
+        button {
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #3700b3;
+        }
+        #afisaj {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Explorator de Numere Armstrong</h2>
+    <button onclick="startProces()">🔍Găsește Numere</button>
+    <p id="afisaj"></p>
+
+    <script>
+        function verificaNumar(n) {
+            let str = String(n), len = str.length, total = 0;
+            for (let i = 0; i < len; i++) {
+                total += (+str[i]) ** len;
+            }
+            return total === n;
+        }
+
+        function cautaInterval(x, y) {
+            let lista = [];
+            for (let j = x; j <= y; j++) {
+                if (verificaNumar(j)) {
+                    lista.push(j);
+                }
+            }
+            return lista;
+        }
+
+        function startProces() {
+            let lim1 = Number(prompt("Introduceți începutul intervalului:"));
+            let lim2 = Number(prompt("Introduceți sfârșitul intervalului:"));
+            
+            if (!Number.isFinite(lim1) || !Number.isFinite(lim2) || lim1 > lim2) {
+                document.getElementById("afisaj").innerText = "⚠️ Interval invalid. Verificați datele introduse!";
+                return;
+            }
+            
+            let rezultate = cautaInterval(lim1, lim2);
+            document.getElementById("afisaj").innerText = "🔢 Numere găsite: " + (rezultate.length ? rezultate.join(", ") : "Niciunul");
+        }
+    </script>
+</body>
+</html>

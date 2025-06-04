@@ -1,0 +1,12 @@
+C:\Users\brieg\Desktop\CalculatorWS\CalculatorWS\CalculatorClientWinForms\bin\Debug\CalculatorClientWinForms.exe.config
+C:\Users\brieg\Desktop\CalculatorWS\CalculatorWS\CalculatorClientWinForms\bin\Debug\CalculatorClientWinForms.exe
+C:\Users\brieg\Desktop\CalculatorWS\CalculatorWS\CalculatorClientWinForms\bin\Debug\CalculatorClientWinForms.pdb
+C:\Users\brieg\Desktop\CalculatorWS\CalculatorWS\CalculatorClientWinForms\obj\Debug\CalculatorClientWinForms.csproj.AssemblyReference.cache
+C:\Users\brieg\Desktop\CalculatorWS\CalculatorWS\CalculatorClientWinForms\obj\Debug\CalculatorClientWinForms.Form1.resources
+C:\Users\brieg\Desktop\CalculatorWS\CalculatorWS\CalculatorClientWinForms\obj\Debug\CalculatorClientWinForms.Properties.Resources.resources
+C:\Users\brieg\Desktop\CalculatorWS\CalculatorWS\CalculatorClientWinForms\obj\Debug\CalculatorClientWinForms.csproj.GenerateResource.cache
+C:\Users\brieg\Desktop\CalculatorWS\CalculatorWS\CalculatorClientWinForms\obj\Debug\CalculatorClientWinForms.csproj.CoreCompileInputs.cache
+C:\Users\brieg\Desktop\CalculatorWS\CalculatorWS\CalculatorClientWinForms\obj\Debug\CalculatorClientWinForms.exe
+C:\Users\brieg\Desktop\CalculatorWS\CalculatorWS\CalculatorClientWinForms\obj\Debug\CalculatorClientWinForms.pdb
+C:\Users\brieg\Desktop\CalculatorWS\CalculatorWS\CalculatorClientWinForms\obj\Debug\CalculatorClientWinForms.exe.config
+C:\Users\brieg\Desktop\CalculatorWS\CalculatorWS\CalculatorClientWinForms\obj\Debug\CalculatorClientWinForms.SplashForm.resources
